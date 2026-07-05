@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Devfluencer — AI Content Agency"
+version = "1.0.0"
+id = "artifacts/devfluencer"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20539
+
+[services.development]
+run = "pnpm --filter @workspace/devfluencer run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/devfluencer", "run", "build" ]
+publicDir = "artifacts/devfluencer/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20539"
+BASE_PATH = "/"
