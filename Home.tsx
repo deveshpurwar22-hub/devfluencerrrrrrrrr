@@ -10,3 +10,26 @@ import { Founder } from "./Founder";
 import { FinalCTA } from "./FinalCTA";
 import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
+
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-screen bg-[#080808]">
+      <Navbar />
+
+      <main className="flex-1">
+        <Hero />
+        <Portfolio />
+        <Problem />
+        <System45 />
+        <Process />
+        <Services />
+        <WhoWeHelp />
+        <Founder />
+        <FinalCTA />
+      </main>
+
+      <Footer />
+      <WhatsAppFloat />
+    </div>
+  );
+}
