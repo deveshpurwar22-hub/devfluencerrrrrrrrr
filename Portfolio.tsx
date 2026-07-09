@@ -37,7 +37,7 @@ const cards = [
     category: "Infotainment Edit",
     description: "Educational content made entertaining — blending facts, storytelling and pacing to keep audiences watching till the end.",
     skills: ["Storytelling", "Pacing", "B-roll", "Captions", "Sound design"],
-    src: "/podcast-edit.mp4"
+    src: "/infotainment.mp4"
   }
 ];
 
