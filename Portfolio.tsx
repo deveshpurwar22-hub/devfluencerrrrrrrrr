@@ -7,40 +7,41 @@ const cards = [
     category: "Roast Content Editing",
     description: "High-retention short-form editing focused on hooks, captions, pacing, storytelling and attention.",
     skills: ["Fast cuts", "Captions", "Meme timing", "Sound design", "Storytelling"],
-    src: "/roast.mp4"
+    src: "/podcast-edit.mp4"
   },
   {
     category: "Talking Head Edit",
     description: "Clean, engaging talking-head edits that make every word land — captions, pacing, and energy dialled in.",
     skills: ["Jump cuts", "Captions", "Eye contact retention", "Audio polish", "Pacing"],
-    src: "/videos/talking-head.mp4"
+    src: "/podcast-edit.mp4"
   },
   {
     category: "Podcast Edit",
     description: "Punchy podcast clips cut for maximum retention — pulling the best moments and making them unmissable.",
     skills: ["Moment selection", "Dynamic zoom", "Captions", "Audio cleanup", "Hook creation"],
-        src: "/podcast-edit.mp4"
-
+    src: "/podcast-edit.mp4"
   },
   {
     category: "Faceless Video Edit",
     description: "High-impact faceless content that builds authority without showing the creator — visuals, voiceover and storytelling in sync.",
     skills: ["Visual storytelling", "Voiceover sync", "Motion graphics", "Retention pacing", "B-roll"],
-    src: "/videos/faceless.mp4"
+    src: "/podcast-edit.mp4"
   },
   {
     category: "AI Ad",
     description: "Scroll-stopping AI-powered ad edits built to convert — tight pacing, sharp hooks and clean storytelling.",
     skills: ["Hook writing", "Fast pacing", "Captions", "CTA design", "Retention"],
-    src: "/ai-ad.mp4"
+    src: "/podcast-edit.mp4"
   },
   {
     category: "Infotainment Edit",
     description: "Educational content made entertaining — blending facts, storytelling and pacing to keep audiences watching till the end.",
     skills: ["Storytelling", "Pacing", "B-roll", "Captions", "Sound design"],
-    src: "/videos/infotainment.mp4"
+    src: "/podcast-edit.mp4"
   }
 ];
+
+    
 
 export function Portfolio() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
