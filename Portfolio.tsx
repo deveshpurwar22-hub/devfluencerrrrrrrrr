@@ -7,7 +7,7 @@ const cards = [
     category: "Roast Content Editing",
     description: "High-retention short-form editing focused on hooks, captions, pacing, storytelling and attention.",
     skills: ["Fast cuts", "Captions", "Meme timing", "Sound design", "Storytelling"],
-    src: "/videos/roast.mp4"
+    src: "/roast.mp4"
   },
   {
     category: "Talking Head Edit",
@@ -19,7 +19,8 @@ const cards = [
     category: "Podcast Edit",
     description: "Punchy podcast clips cut for maximum retention — pulling the best moments and making them unmissable.",
     skills: ["Moment selection", "Dynamic zoom", "Captions", "Audio cleanup", "Hook creation"],
-    src: "/videos/podcast-edit.mp4"
+        src: "/podcast-edit.mp4"
+
   },
   {
     category: "Faceless Video Edit",
@@ -31,7 +32,7 @@ const cards = [
     category: "AI Ad",
     description: "Scroll-stopping AI-powered ad edits built to convert — tight pacing, sharp hooks and clean storytelling.",
     skills: ["Hook writing", "Fast pacing", "Captions", "CTA design", "Retention"],
-    src: "/videos/ai-ad.mp4"
+    src: "/ai-ad.mp4"
   },
   {
     category: "Infotainment Edit",
