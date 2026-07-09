@@ -116,7 +116,7 @@ export function Navbar() {
               <ul className="flex flex-col gap-6 text-base font-medium text-white/80">
                 {links.map((link) => (
                   <li key={link.name}>
-                  <a
+                
   <a
   href={link.href}
   onClick={(e) => {
@@ -127,7 +127,7 @@ export function Navbar() {
 >
   {link.name}
 </a>
-                  </li>
+     </li>
                 ))}
               </ul>
               <a
