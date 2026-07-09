@@ -23,6 +23,20 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
+    const handleNavClick = (href: string) => {
+  setIsOpen(false);
+
+  setTimeout(() => {
+    const section = document.querySelector(href);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, 200);
+};
     { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
@@ -103,12 +117,13 @@ export function Navbar() {
                 {links.map((link) => (
                   <li key={link.name}>
                   <a
+  <a
   href={link.href}
   onClick={(e) => {
     e.preventDefault();
     handleNavClick(link.href);
   }}
-  className="block hover:text-white transition-colors"
+  className="hover:text-white transition-colors duration-300"
 >
   {link.name}
 </a>
