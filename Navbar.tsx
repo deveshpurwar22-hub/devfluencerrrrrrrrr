@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "./logo-dark-trimmed.png";
 
 const WhatsAppIcon = () => (
   <svg
@@ -34,10 +35,10 @@ export function Navbar() {
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#home" className="flex items-center">
           <img
-            src="/logo-dark-trimmed.png"
-            alt="Devfluencer"
-            style={{ height: 50, width: "auto", objectFit: "contain" }}
-          />
+  src={logo}
+  alt="Devfluencer"
+  style={{ height: 50, width: "auto", objectFit: "contain" }}
+/>
         </a>
 
         {/* Desktop Nav */}
