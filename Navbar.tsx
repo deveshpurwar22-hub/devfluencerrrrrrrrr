@@ -23,7 +23,13 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    const handleNavClick = (href: string) => {
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "Process", href: "#process" },
+    { name: "About", href: "#about" },
+  ];
+      const handleNavClick = (href: string) => {
   setIsOpen(false);
 
   setTimeout(() => {
@@ -37,12 +43,6 @@ export function Navbar() {
     }
   }, 200);
 };
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Process", href: "#process" },
-    { name: "About", href: "#about" },
-  ];
 
   return (
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 transition-all">
