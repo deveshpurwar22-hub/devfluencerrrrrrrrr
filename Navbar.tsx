@@ -102,13 +102,16 @@ export function Navbar() {
               <ul className="flex flex-col gap-6 text-base font-medium text-white/80">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
+                  <a
+  href={link.href}
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavClick(link.href);
+  }}
+  className="block hover:text-white transition-colors"
+>
+  {link.name}
+</a>
                   </li>
                 ))}
               </ul>
