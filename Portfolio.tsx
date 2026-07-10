@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
 
@@ -45,6 +45,19 @@ const cards = [
 
 export function Portfolio() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  checkMobile();
+
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
 
   return (
     <section id="portfolio" className="py-24 bg-[#080808]">
@@ -76,15 +89,16 @@ export function Portfolio() {
             >
               {/* Thumbnail Area */}
               <div className="relative aspect-[9/16] w-full bg-[#141414] overflow-hidden">
-                <video 
-                  src={card.src} 
-                  className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500"
+                <video
+                  src={card.src}
+                 className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500"
                   muted
-                  autoPlay
-                  playsInline 
-                  loop
-                  preload="auto"
-                />
+                   playsInline
+                   loop
+                 preload="metadata"
+                  autoPlay={!isMobile}
+                   controls={false}
+/>
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-colors duration-500">
                   <div className="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center bg-black/50 backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]">
                     <Play className="w-6 h-6 ml-1" fill="currentColor" />
@@ -134,12 +148,14 @@ export function Portfolio() {
               className="relative max-h-full max-w-full aspect-[9/16] bg-[#0f0f0f] rounded-lg overflow-hidden border border-white/10 shadow-2xl"
               onClick={e => e.stopPropagation()}
             >
-              <video 
-                src={activeVideo} 
-                controls 
-                autoPlay 
-                className="w-full h-full object-contain"
-              />
+             <video
+  src={activeVideo}
+  controls
+  autoPlay
+  playsInline
+  preload="metadata"
+  className="w-full h-full object-contain"
+/>
             </motion.div>
           </motion.div>
         )}
