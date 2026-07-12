@@ -18,7 +18,9 @@ export function Footer() {
   return (
     <footer className="bg-[#080808] border-t border-white/5 py-16">
       <div className="container mx-auto px-6">
+
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+
           <div>
             <a href="#home" className="inline-flex items-center mb-4">
               <img
@@ -58,17 +60,19 @@ export function Footer() {
               Devesh Purwar
             </a>
           </div>
+
         </div>
 
-      <footer className="py-8 border-t border-white/10">
-  <div className="container mx-auto px-6 text-center">
-    <a
-      href="mailto:hello@devfluencer.in"
-      className="text-white/50 hover:text-white text-sm tracking-wide transition-all"
-    >
-      hello@devfluencer.in
-    </a>
-  </div>
-</footer>
+        <div className="border-t border-white/10 mt-10 pt-6 text-center">
+          <a
+            href="mailto:hello@devfluencer.in"
+            className="text-white/50 hover:text-white text-sm tracking-wide transition-all"
+          >
+            devesh@devfluencer.in
+          </a>
+        </div>
+
+      </div>
+    </footer>
   );
 }
