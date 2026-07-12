@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "./Devfluencer-01.png";
+import logo from "./favicon.svg.png";
 
 const WhatsAppIcon = () => (
   <svg
