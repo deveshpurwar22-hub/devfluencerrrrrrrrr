@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+
 const WhatsAppIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -28,18 +29,16 @@ export function Footer() {
                 src="/Devfluencer-01.png"
                 alt="Devfluencer"
                 style={{ height: 42, width: "auto", objectFit: "contain" }}
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
               />
             </a>
 
-            <p className="text-muted-foreground font-light text-sm max-w-xs">
+            <p className="text-muted-foreground text-sm">
               AI Content Agency for Founders & Coaches
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 text-sm text-muted-foreground">
+
             <a
               href="https://wa.me/919451988633"
               target="_blank"
@@ -50,7 +49,7 @@ export function Footer() {
               +91 9451988633
             </a>
 
-            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="hidden sm:block text-white/20">|</span>
 
             <a
               href="https://www.linkedin.com/in/devesh-purwar-6497b6306"
@@ -60,19 +59,22 @@ export function Footer() {
             >
               Devesh Purwar
             </a>
+
           </div>
 
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 flex justify-center">
-  <a
-    href="mailto:devesh@devfluencer.in"
-    className="flex items-center gap-2 text-white/50 hover:text-white text-sm tracking-wide transition-all"
-  >
-    <Mail size={16} />
-    devesh@devfluencer.in
-  </a>
-</div>
+          <a
+            href="mailto:hello@devfluencer.in"
+            className="flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors"
+          >
+            <Mail size={16} />
+            hello@devfluencer.in
+          </a>
+        </div>
+
+      </div>
     </footer>
   );
 }
