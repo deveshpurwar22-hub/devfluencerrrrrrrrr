@@ -63,16 +63,15 @@ export function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 text-center">
-          <a
-            href="mailto:hello@devfluencer.in"
-            className="text-white/50 hover:text-white text-sm tracking-wide transition-all"
-          >
-            devesh@devfluencer.in
-          </a>
-        </div>
-
-      </div>
+        <div className="border-t border-white/10 mt-10 pt-6 flex justify-center">
+  <a
+    href="mailto:devesh@devfluencer.in"
+    className="flex items-center gap-2 text-white/50 hover:text-white text-sm tracking-wide transition-all"
+  >
+    <Mail size={16} />
+    devesh@devfluencer.in
+  </a>
+</div>
     </footer>
   );
 }
