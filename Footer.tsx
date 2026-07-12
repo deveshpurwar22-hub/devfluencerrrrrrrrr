@@ -22,7 +22,7 @@ export function Footer() {
           <div>
             <a href="#home" className="inline-flex items-center mb-4">
               <img
-                src="/logo-dark-trimmed.png"
+                src="/Devfluencer-01.png"
                 alt="Devfluencer"
                 style={{ height: 42, width: "auto", objectFit: "contain" }}
                 onError={(e) => {
@@ -60,10 +60,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 text-center text-xs text-muted-foreground/50">
-          © 2025 Devfluencer. All rights reserved.
-        </div>
-      </div>
-    </footer>
+        <footer className="...">
+  <div className="container text-center space-y-3">
+
+    
+
+    <a
+      href="mailto:hello@devfluencer.in"
+      className="text-white/60 hover:text-white transition"
+    >
+      📧 devesh@devfluencer.in
+    </a>
+
+  </div>
+</footer>
   );
 }
