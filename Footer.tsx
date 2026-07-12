@@ -66,7 +66,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-10 pt-6 flex justify-center">
           <a
-            href="mailto:hello@devfluencer.in"
+            href="mailto:devesh@devfluencer.in"
             className="flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors"
           >
             <Mail size={16} />
