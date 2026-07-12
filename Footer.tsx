@@ -60,18 +60,14 @@ export function Footer() {
           </div>
         </div>
 
-        <footer className="...">
-  <div className="container text-center space-y-3">
-
-    
-
+      <footer className="py-8 border-t border-white/10">
+  <div className="container mx-auto px-6 text-center">
     <a
       href="mailto:hello@devfluencer.in"
-      className="text-white/60 hover:text-white transition"
+      className="text-white/50 hover:text-white text-sm tracking-wide transition-all"
     >
-      📧 devesh@devfluencer.in
+      hello@devfluencer.in
     </a>
-
   </div>
 </footer>
   );
