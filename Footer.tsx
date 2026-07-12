@@ -26,7 +26,7 @@ export function Footer() {
           <div>
             <a href="#home" className="inline-flex items-center mb-4">
               <img
-                src="/Devfluencer-01.png"
+                src="/favicon.svg.png"
                 alt="Devfluencer"
                 style={{ height: 42, width: "auto", objectFit: "contain" }}
               />
