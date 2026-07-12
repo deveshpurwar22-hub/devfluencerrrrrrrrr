@@ -1,3 +1,4 @@
+import { Mail } from "lucide-react";
 const WhatsAppIcon = () => (
   <svg
     viewBox="0 0 24 24"
