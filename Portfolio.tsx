@@ -91,7 +91,7 @@ useEffect(() => {
               <div className="relative aspect-[9/16] w-full bg-[#141414] overflow-hidden">
                 <video
   src={card.src}
-  className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500"
+  className="absolute inset-0 w-full h-full object-cover"
   muted
   playsInline
   loop={!isMobile}
@@ -101,8 +101,8 @@ useEffect(() => {
   disablePictureInPicture
   controlsList="nodownload noplaybackrate"
 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-colors duration-500">
-                  <div className="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center bg-black/50 backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]">
+<div className="absolute inset-0 flex items-center justify-center bg-black/40">                
+  <div className="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center bg-black/50 backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]">
                     <Play className="w-6 h-6 ml-1" fill="currentColor" />
                   </div>
                 </div>
