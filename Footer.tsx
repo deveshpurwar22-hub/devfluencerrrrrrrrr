@@ -70,7 +70,7 @@ export function Footer() {
             className="flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors"
           >
             <Mail size={16} />
-            hello@devfluencer.in
+            devesh@devfluencer.in
           </a>
         </div>
 
