@@ -153,13 +153,270 @@ useEffect(() => {
              <video
   src={activeVideo}
   controls
-  autoPlay
-  playsInline
-  preload="metadata"
-  controlsList="nodownload"
-  disablePictureInPicture
-  className="w-full h-full object-contain"
-/>
+  import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+
+const cards = [
+  {
+    category: "Roast Content Editing",
+    description:
+      "High-retention short-form editing focused on hooks, captions, pacing, storytelling and attention.",
+    skills: [
+      "Fast cuts",
+      "Captions",
+      "Meme timing",
+      "Sound design",
+      "Storytelling",
+    ],
+    src: "/roast.mp4",
+  },
+  {
+    category: "Talking Head Edit",
+    description:
+      "Clean, engaging talking-head edits that make every word land — captions, pacing, and energy dialled in.",
+    skills: [
+      "Jump cuts",
+      "Captions",
+      "Eye contact retention",
+      "Audio polish",
+      "Pacing",
+    ],
+    src: "/talking-head.mp4",
+  },
+  {
+    category: "Podcast Edit",
+    description:
+      "Punchy podcast clips cut for maximum retention — pulling the best moments and making them unmissable.",
+    skills: [
+      "Moment selection",
+      "Dynamic zoom",
+      "Captions",
+      "Audio cleanup",
+      "Hook creation",
+    ],
+    src: "/podcast-edit.mp4",
+  },
+  {
+    category: "Faceless Video Edit",
+    description:
+      "High-impact faceless content that builds authority without showing the creator — visuals, voiceover and storytelling in sync.",
+    skills: [
+      "Visual storytelling",
+      "Voiceover sync",
+      "Motion graphics",
+      "Retention pacing",
+      "B-roll",
+    ],
+    src: "/faceless.mp4",
+  },
+  {
+    category: "AI Ad",
+    description:
+      "Scroll-stopping AI-powered ad edits built to convert — tight pacing, sharp hooks and clean storytelling.",
+    skills: [
+      "Hook writing",
+      "Fast pacing",
+      "Captions",
+      "CTA design",
+      "Retention",
+    ],
+    src: "/ai-ad.mp4",
+  },
+  {
+    category: "Infotainment Edit",
+    description:
+      "Educational content made entertaining — blending facts, storytelling and pacing to keep audiences watching till the end.",
+    skills: [
+      "Storytelling",
+      "Pacing",
+      "B-roll",
+      "Captions",
+      "Sound design",
+    ],
+    src: "/infotaimentt.mp4",
+  },
+];
+
+export function Portfolio() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
+
+  /*
+   * PERFORMANCE:
+   * Only videos currently visible on screen are allowed to play.
+   * Videos outside the viewport are paused.
+   *
+   * This keeps autoplay while preventing the phone from decoding
+   * all 6 videos simultaneously.
+   */
+  useEffect(() => {
+    const videos = Array.from(videoRefs.current.values());
+
+    if (!videos.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+            video
+              .play()
+              .catch(() => {
+                // Browser may block autoplay in some situations.
+              });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: [0, 0.25, 0.5],
+        rootMargin: "120px 0px 120px 0px",
+      }
+    );
+
+    videos.forEach((video) => observer.observe(video));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <section id="portfolio" className="py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
+        {/* Section heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 max-w-2xl"
+        >
+          <p className="text-primary text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+            Our Work
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-5">
+            Content We Create
+          </h2>
+
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            High-retention content built for founders and coaches.
+          </p>
+        </motion.div>
+
+        {/* Video cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cards.map((card, index) => (
+            <motion.div
+              key={card.category}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                delay: index * 0.08,
+                duration: 0.5,
+              }}
+              className="group relative bg-[#0f0f0f] border border-[#1f1f1f] rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-500 cursor-pointer flex flex-col h-full"
+              onClick={() => setActiveVideo(card.src)}
+            >
+              {/* Video */}
+              <div className="relative aspect-[9/16] w-full bg-[#141414] overflow-hidden">
+                <video
+                  ref={(element) => {
+                    if (element) {
+                      videoRefs.current.set(card.src, element);
+                    } else {
+                      videoRefs.current.delete(card.src);
+                    }
+                  }}
+                  src={card.src}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  muted
+                  playsInline
+                  loop
+                  preload="none"
+                  autoPlay
+                  controls={false}
+                  disablePictureInPicture
+                  controlsList="nodownload noplaybackrate"
+                />
+
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {card.category}
+                </h3>
+
+                <p className="text-sm text-muted-foreground mb-6 font-light leading-relaxed flex-grow">
+                  {card.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {card.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 text-[11px] font-medium text-white/70 bg-white/5 rounded border border-white/10"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 md:p-10"
+            onClick={() => setActiveVideo(null)}
+          >
+            {/* Close */}
+            <button
+              type="button"
+              aria-label="Close video"
+              className="absolute top-6 right-6 z-10 text-white/70 hover:text-white transition-colors p-2"
+              onClick={() => setActiveVideo(null)}
+            >
+              <X size={32} />
+            </button>
+
+            {/* Modal video */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-full max-w-[500px] h-[85vh] max-h-[900px] bg-[#0f0f0f] rounded-lg overflow-hidden border border-white/10 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video
+                key={activeVideo}
+                src={activeVideo}
+                controls
+                autoPlay
+                muted={false}
+                playsInline
+                preload="auto"
+                controlsList="nodownload"
+                disablePictureInPicture
+                className="w-full h-full object-contain"
+              />
             </motion.div>
           </motion.div>
         )}
@@ -167,3 +424,5 @@ useEffect(() => {
     </section>
   );
 }
+
+export default Portfolio;
