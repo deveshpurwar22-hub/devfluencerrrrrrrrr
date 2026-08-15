@@ -79,7 +79,7 @@ const cards = [
       "Captions",
       "Sound design",
     ],
-    src: "/infotaimentt.mp4",
+    src: "/infotaimenttt.mp4",
   },
 ];
 
