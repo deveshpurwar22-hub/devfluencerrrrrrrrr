@@ -53,7 +53,7 @@ const cards = [
       "Retention pacing",
       "B-roll",
     ],
-    src: "/faceless.mp4",
+    src: "/facelesss.mp4",
   },
   {
     category: "AI Ad",
